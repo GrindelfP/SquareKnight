@@ -14,7 +14,7 @@ public:
         sf::Vector2f initialVelocity, 
         sf::Vector2f initialAcceleration, 
         sf::Vector2f initialPosition
-        ) : Entity2D(initialPosition) {
+    ) : Entity2D(initialPosition) {
         this->velocity = initialVelocity;
         this->acceleration = initialAcceleration;
     }

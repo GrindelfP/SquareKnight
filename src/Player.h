@@ -11,7 +11,7 @@ public:
 
     std::unique_ptr<sf::Shape> visual;
 
-    static constexpr float PLAYER_X_SPEED = 30.0f;
+    static constexpr float PLAYER_X_SPEED = 300.0f;
     static constexpr float jumpVelocityY = PLAYER_BASE_JUMP_VELOCITY;
 
     Player2D(

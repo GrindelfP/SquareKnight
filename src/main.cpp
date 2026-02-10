@@ -2,6 +2,7 @@
 
 #include "constants.h"
 #include "Player.h"
+#include "Camera.h"
 #include <memory>
 
 int main(int argc, char** argv) {
@@ -25,12 +26,16 @@ int main(int argc, char** argv) {
     );
     Player2D player(std::move(shape), playerInitialPosition);
 
+    // CAMERA
+    Camera2D camera(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT), player);
+
     // FLOOR
     sf::RectangleShape floor;
-    floor.setSize({WINDOW_WIDTH, 20});
+    floor.setSize({WINDOW_WIDTH, FLOOR_HEIGHT});
     floor.setFillColor(sf::Color::Green);
     floor.setPosition({0, static_cast<float>(window.getSize().y - FLOOR_OFFSET)});   
 
+    // GAME LOOP
     while (window.isOpen()) {
         float dt = clock.restart().asSeconds();
 
@@ -50,9 +55,13 @@ int main(int argc, char** argv) {
 
         // UPDATE
         player.update(dt);
+        camera.update(dt);
 
         // BACKGROUND
         window.clear(sf::Color(100, 149, 237));
+
+        // VIEW
+        window.setView(camera.view);
 
         // RENDER
         window.draw(floor);
