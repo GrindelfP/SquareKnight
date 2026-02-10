@@ -3,9 +3,12 @@
 #include "constants.h"
 #include "Player.h"
 #include "Camera.h"
+#include "Ground.h"
 #include <memory>
 
 int main(int argc, char** argv) {
+
+    srand(time(0));
 
     // WINDOW
     sf::RenderWindow window;
@@ -25,15 +28,13 @@ int main(int argc, char** argv) {
         {0.0f, static_cast<float>(window.getSize().y - PLAYER_OFFSET)}
     );
     Player2D player(std::move(shape), playerInitialPosition);
+    player.switchDoubleJumb();
 
     // CAMERA
     Camera2D camera(sf::Vector2f(WINDOW_WIDTH, WINDOW_HEIGHT), player);
 
     // FLOOR
-    sf::RectangleShape floor;
-    floor.setSize({WINDOW_WIDTH, FLOOR_HEIGHT});
-    floor.setFillColor(sf::Color::Green);
-    floor.setPosition({0, static_cast<float>(window.getSize().y - FLOOR_OFFSET)});   
+    GroundHandler groundHandler;
 
     // GAME LOOP
     while (window.isOpen()) {
@@ -46,9 +47,10 @@ int main(int argc, char** argv) {
 
             if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
                 if (keyPressed->code == sf::Keyboard::Key::Space) {
-                    if (player.velocity.y == 0.0f) {
-                        player.jump();
-                    }
+                    player.jump();
+                }
+                if (keyPressed->code == sf::Keyboard::Key::Escape) {
+                    window.close();
                 }
             }
         }
@@ -56,6 +58,7 @@ int main(int argc, char** argv) {
         // UPDATE
         player.update(dt);
         camera.update(dt);
+        groundHandler.update(camera.getPosition());
 
         // BACKGROUND
         window.clear(sf::Color(100, 149, 237));
@@ -64,7 +67,7 @@ int main(int argc, char** argv) {
         window.setView(camera.view);
 
         // RENDER
-        window.draw(floor);
+        groundHandler.drawTo(window);
         window.draw(player);
         window.display();
     }

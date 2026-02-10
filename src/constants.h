@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#define REPEAT(x) for (int i = 0; i < x; ++i)
+
 #define WINDOW_HEIGHT 800
 #define WINDOW_WIDTH 1200
 

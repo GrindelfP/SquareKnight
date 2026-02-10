@@ -11,6 +11,9 @@ public:
 
     std::unique_ptr<sf::Shape> visual;
 
+    bool doubleJump = false;
+    int jumps = 1;
+
     static constexpr float PLAYER_X_SPEED = 300.0f;
     static constexpr float jumpVelocityY = PLAYER_BASE_JUMP_VELOCITY;
 
@@ -26,7 +29,10 @@ public:
     }
 
     inline void jump() {
-        this->velocity.y = jumpVelocityY;
+        if (this->jumps > 0) {
+            this->velocity.y = this->jumpVelocityY;
+            this->jumps--;
+        }
     }
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override final {
@@ -41,7 +47,12 @@ public:
         if (getPosition().y > WINDOW_HEIGHT - PLAYER_OFFSET) {
             setPosition({getPosition().x, (float)WINDOW_HEIGHT - PLAYER_OFFSET});
             this->velocity.y = 0.0f;
+            this->jumps = this->doubleJump ? 2 : 1; // single or double jump 
         }
+    }
+
+    void switchDoubleJumb() {
+        this->doubleJump = !(this->doubleJump);
     }
 };
 
