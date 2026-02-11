@@ -11,11 +11,13 @@ public:
         this->setPosition(initialPosition);
     }
 
-    virtual ~Entity2D() = default;
+    ~Entity2D() override = default;
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override = 0;
 
     virtual void update(float deltaTime) = 0;
+
+    virtual sf::FloatRect getBounds() const = 0;
 };
 
 #endif // ENTITY_H

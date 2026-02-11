@@ -5,6 +5,8 @@
 #include "constants.h"
 #include <random>
 
+#include "Handler.h"
+
 class Tile2D : public Entity2D {
 
 public:
@@ -23,18 +25,14 @@ public:
         visual.setOutlineColor(darkGreen);
         visual.setOutlineThickness(-2.0f);
 
-        // 1. Setup static random engine (initialized once)
         static std::random_device rd;
         static std::mt19937 gen(rd());
-
-        // 2. Define distributions for count and coordinates
         std::uniform_int_distribution<int> countDist(100, 300);
         std::uniform_real_distribution<float> xDist(2.0f, tileSize.x - 2.0f);
         std::uniform_real_distribution<float> yDist(2.0f, tileSize.y - 2.0f);
 
         int dotsCount = countDist(gen);
         
-        // Assuming REPEAT is a macro you have defined elsewhere
         REPEAT(dotsCount) {
             float x = xDist(gen);
             float y = yDist(gen);
@@ -49,9 +47,13 @@ public:
     }
 
     void update(float deltaTime) override final {}
+
+    sf::FloatRect getBounds() const final {
+        return this->visual.getGlobalBounds();
+    }
 };
 
-class GroundHandler {
+class GroundHandler : public Handler {
 
 public:
     std::deque<std::unique_ptr< Tile2D > > tiles;
@@ -60,7 +62,7 @@ public:
     static constexpr float tileLenght = 100.0f;
     static constexpr float reserve = WINDOW_WIDTH;
     static constexpr float gapSize = 150.f;
-    static constexpr int gaplessRowSize = 12;
+    static constexpr int gaplessRowSize = 30;
 
     explicit GroundHandler() {
         REPEAT(gaplessRowSize) {
@@ -93,6 +95,21 @@ public:
         for (const auto& tile : this->tiles) {
             target.draw(*tile);
         }
+    }
+
+    [[nodiscard]] float getSurfaceHeight(const sf::FloatRect bounds) const {
+        float supportL = bounds.position.x + (bounds.size.x * 0.33f);
+        float supportR = bounds.position.x + (bounds.size.x * 0.66f);
+
+        for (const auto& tile : tiles) {
+            float tL = tile->getPosition().x;
+            float tR = tL + tileLenght;
+
+            if (tR > supportL && tL < supportR) {
+                return tile->getPosition().y;
+            }
+        }
+        return 20000.0f;
     }
 };
 

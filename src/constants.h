@@ -4,7 +4,7 @@
 #define REPEAT(x) for (int i = 0; i < x; ++i)
 
 #define WINDOW_HEIGHT 800
-#define WINDOW_WIDTH 1200
+#define WINDOW_WIDTH 1400
 
 #define GRAV_ACCELERATION 980.0f
 
@@ -16,5 +16,7 @@
 #define PLAYER_OFFSET (FLOOR_OFFSET + PLAYER_SIZE)
 
 #define FPS_LIMIT 120
+
+#define EVENT /*ENGINE EVENT FUNCTION*/
 
 #endif // CONSTANTS_H

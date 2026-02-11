@@ -7,9 +7,15 @@ find_package(SFML 3 COMPONENTS Window Graphics System REQUIRED)       # SFML poi
 add_executable(
     main 
     src/main.cpp
-    )                                                                 # Executable
+        src/Handler.h
+)                                                                     # Executable
 target_link_libraries(main 
         SFML::Graphics 
         SFML::Window 
         SFML::System
-    )                                                                 # Lib linking
+)                                                                     # Lib linking
+add_custom_command(TARGET main POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/assets"
+        "${CMAKE_BINARY_DIR}/assets"
+)
