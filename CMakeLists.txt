@@ -3,16 +3,16 @@ project(SquareKnight)                                                 # Project 
 set(CMAKE_APPLE_SILICON_PROCESSOR "arm64")                            # Architecture
 set(CMAKE_OSX_ARCHITECTURES "arm64")
 list(APPEND CMAKE_PREFIX_PATH "/opt/homebrew")                        # Path to libs
-find_package(SFML 3 COMPONENTS Window Graphics System REQUIRED)       # SFML pointer 
+find_package(SFML 3 COMPONENTS Window Graphics System Audio REQUIRED) # SFML pointer
 add_executable(
     main 
     src/main.cpp
-        src/Handler.h
 )                                                                     # Executable
 target_link_libraries(main 
         SFML::Graphics 
         SFML::Window 
         SFML::System
+        SFML::Audio
 )                                                                     # Lib linking
 add_custom_command(TARGET main POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory

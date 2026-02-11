@@ -40,12 +40,12 @@ public:
         }
     }
 
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const final {
+    ENTITY_METHOD void draw(sf::RenderTarget &target, sf::RenderStates states) const final {
         states.transform *= getTransform();
         target.draw(this->sprite, states);
     }
 
-    void update(const float deltaTime) final {
+    ENTITY_METHOD void update(const float deltaTime) final {
         this->timer += deltaTime;
         if (this->timer >= 0.3f) {
             timer = 0.0f;
@@ -55,7 +55,7 @@ public:
         MovableEntity2D::update(deltaTime);
     }
 
-    sf::FloatRect getBounds() const final {
+    ENTITY_METHOD sf::FloatRect getBounds() const final {
         return getTransform().transformRect(sprite.getGlobalBounds());
     }
 
@@ -63,7 +63,7 @@ public:
         this->doubleJump = !(this->doubleJump);
     }
 
-    EVENT void onLand() override {
+    MOVABLE_ENTITY_METHOD EVENT void onLand() override {
         this->jumps = this->doubleJump ? 2 : 1;
     }
 };

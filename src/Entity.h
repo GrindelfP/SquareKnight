@@ -1,7 +1,6 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include <vector>
 #include <SFML/Graphics.hpp>
 
 class Entity2D : public sf::Transformable, public sf::Drawable {
