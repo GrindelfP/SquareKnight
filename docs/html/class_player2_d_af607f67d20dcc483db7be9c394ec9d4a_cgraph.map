@@ -1,9 +1,0 @@
-<map id="Player2D::update" name="Player2D::update">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,128,56"/>
-<area shape="rect" id="Node000002" href="$class_movable_entity2_d.html#a58f31ac0e41389794495f1fff9f6a3ef" title=" " alt="" coords="176,31,344,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,41,163,43,157,44,128,46"/>
-<area shape="rect" id="Node000003" href="$class_entity2_d.html#ac76822d3585e09a6ce8ff4b2d99f14e0" title=" " alt="" coords="406,5,549,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="344,31,394,28,388,29,345,36"/>
-<area shape="rect" id="Node000004" href="$class_movable_entity2_d.html#acfe6af75cff1acbc60673e25ad948a09" title=" " alt="" coords="392,55,563,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="344,50,379,56,374,56,344,55"/>
-</map>

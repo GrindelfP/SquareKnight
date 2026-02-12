@@ -1,7 +1,0 @@
-<map id="MovableEntity2D::update" name="MovableEntity2D::update">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,174,56"/>
-<area shape="rect" id="Node000002" href="$class_entity2_d.html#ac76822d3585e09a6ce8ff4b2d99f14e0" title=" " alt="" coords="236,5,378,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,31,223,28,218,29,174,36"/>
-<area shape="rect" id="Node000003" href="$class_movable_entity2_d.html#acfe6af75cff1acbc60673e25ad948a09" title=" " alt="" coords="222,55,393,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,50,209,56,204,57,174,55"/>
-</map>

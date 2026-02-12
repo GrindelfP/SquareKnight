@@ -1,7 +1,0 @@
-<map id="Follower2D::Follower2D" name="Follower2D::Follower2D">
-<area shape="rect" id="Node000001" title=" " alt="" coords="209,31,370,56"/>
-<area shape="rect" id="Node000002" href="$class_camera2_d.html#a40e0b0a116f2f3fc936aeab6835e6f5c" title=" " alt="" coords="5,5,161,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,32,161,30,161,25,196,31"/>
-<area shape="rect" id="Node000003" href="$class_sun2_d.html#a92b032f22c9946a458a7a2d1cf799bc4" title=" " alt="" coords="28,55,138,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,55,139,64,138,58,196,54"/>
-</map>

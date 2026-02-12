@@ -1,5 +1,0 @@
-<map id="GroundHandler::spawnStartingLocation" name="GroundHandler::spawnStartingLocation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,205,46"/>
-<area shape="rect" id="Node000002" href="$class_ground_handler.html#a0da6220a3aea5b99b196dd5117eee00a" title=" " alt="" coords="253,13,407,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,23,240,26,234,26,205,28"/>
-</map>

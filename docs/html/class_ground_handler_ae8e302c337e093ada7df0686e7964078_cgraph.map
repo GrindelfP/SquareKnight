@@ -1,7 +1,0 @@
-<map id="GroundHandler::GroundHandler" name="GroundHandler::GroundHandler">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,209,38"/>
-<area shape="rect" id="Node000002" href="$class_ground_handler.html#aab1fd5f27269d229a8440ba2588de7e6" title=" " alt="" coords="257,5,456,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,23,244,26,239,26,209,28"/>
-<area shape="rect" id="Node000003" href="$class_ground_handler.html#a0da6220a3aea5b99b196dd5117eee00a" title=" " alt="" coords="504,13,658,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="456,23,491,26,486,26,456,28"/>
-</map>
