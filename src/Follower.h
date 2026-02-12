@@ -10,7 +10,7 @@ public:
 
     explicit Follower2D(const Entity2D* target) : target(target) {}
 
-    virtual void follow(float deltaTime, float cameraSpeed = 3.5f, bool fixed = false) = 0;
+    virtual void follow(float deltaTime, float cameraSpeed) = 0;
 };
 
 #endif // FOLLOWER_H

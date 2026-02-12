@@ -1,0 +1,22 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,129,55,155"/>
+<area shape="rect" id="Node000002" href="$class_ground_handler.html#a1a1b0d4ce48573e913a5d294c61b5aaa" title=" " alt="" coords="103,5,261,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,128,60,85,78,61,101,40,110,36,107,40,104,44,82,64,64,88,40,130"/>
+<area shape="rect" id="Node000003" href="$class_sky_handler.html#aada32b3bf78111abd80773dd95971a88" title=" " alt="" coords="112,55,252,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="45,127,71,108,101,89,116,84,113,88,104,94,74,112,49,131"/>
+<area shape="rect" id="Node000004" href="$class_ground_handler.html#a0bbcb882393af7c8035047d4063326f4" title=" " alt="" coords="109,104,254,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="54,136,96,130,92,133,57,140"/>
+<area shape="rect" id="Node000007" href="$class_camera2_d.html#a00515a9d1c270b2849478a562de09d32" title=" " alt="" coords="116,153,248,179"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="55,143,103,152,99,155,56,149"/>
+<area shape="rect" id="Node000009" href="$class_ground_handler.html#ad6254e137d12c6cc621950357fa0821c" title=" " alt="" coords="331,204,486,230"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="45,153,72,173,104,189,157,204,212,213,318,221,313,222,211,218,155,209,102,194,69,177,45,158"/>
+<area shape="rect" id="Node000010" href="$class_sun2_d.html#a5ec7d476387cd906796217b24395b0b2" title=" " alt="" coords="128,255,236,280"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="39,153,66,193,84,214,104,233,125,248,120,248,101,238,80,218,62,196,38,158"/>
+<area shape="rect" id="Node000005" href="$class_ground_handler.html#aab1fd5f27269d229a8440ba2588de7e6" title=" " alt="" coords="309,90,508,130"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="254,112,296,113,291,114,255,117"/>
+<area shape="rect" id="Node000006" href="$class_ground_handler.html#a0da6220a3aea5b99b196dd5117eee00a" title=" " alt="" coords="556,151,711,176"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="497,128,564,146,559,147,497,134"/>
+<area shape="rect" id="Node000008" href="$class_camera2_d.html#a1f7c907382c46d3ec40ffd46776790fd" title=" " alt="" coords="346,155,472,180"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="248,164,332,166,327,168,248,169"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="466,201,559,181,564,180,467,206"/>
+</map>

@@ -1,0 +1,84 @@
+\doxysection{src/\+main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$SFML/\+\+Graphics.\+hpp$>$}\newline
+{\ttfamily \+\#include $<$SFML/\+\+Audio.\+hpp$>$}\newline
+{\ttfamily \+\#include "{}constants.\+h"{}}\newline
+{\ttfamily \+\#include "{}Player.\+h"{}}\newline
+{\ttfamily \+\#include "{}Camera.\+h"{}}\newline
+{\ttfamily \+\#include "{}Ground.\+h"{}}\newline
+{\ttfamily \+\#include "{}Sky.\+h"{}}\newline
+{\ttfamily \+\#include $<$memory$>$}\newline
+{\ttfamily \+\#include $<$mach-\/o/\+dyld.\+h$>$}\newline
+{\ttfamily \+\#include $<$unistd.\+h$>$}\newline
+Include dependency graph for main.\+cpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \{ \doxymbox{\hyperlink{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285ac9dbb2b7c84159b632d71e512eba8428}{Playing}}
+, \doxymbox{\hyperlink{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285a2ef54119c1f0d131a1a60e7776fa78f0}{Dying}}
+, \doxymbox{\hyperlink{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285a8f347bc7cebca9fa6d97e70c6bc29eb3}{Game\+Over}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{main_8cpp_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285}\index{main.cpp@{main.cpp}!GameState@{GameState}}
+\index{GameState@{GameState}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily \label{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285} 
+enum class \doxymbox{\hyperlink{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Playing@{Playing}!main.cpp@{main.cpp}}
+\index{main.cpp@{main.cpp}!Playing@{Playing}}
+}\Hypertarget{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285ac9dbb2b7c84159b632d71e512eba8428}\label{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285ac9dbb2b7c84159b632d71e512eba8428} 
+Playing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Dying@{Dying}!main.cpp@{main.cpp}}
+\index{main.cpp@{main.cpp}!Dying@{Dying}}
+}\Hypertarget{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285a2ef54119c1f0d131a1a60e7776fa78f0}\label{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285a2ef54119c1f0d131a1a60e7776fa78f0} 
+Dying&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GameOver@{GameOver}!main.cpp@{main.cpp}}
+\index{main.cpp@{main.cpp}!GameOver@{GameOver}}
+}\Hypertarget{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285a8f347bc7cebca9fa6d97e70c6bc29eb3}\label{main_8cpp_a7899b65f1ea0f655e4bbf8d2a5714285a8f347bc7cebca9fa6d97e70c6bc29eb3} 
+Game\+Over&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}

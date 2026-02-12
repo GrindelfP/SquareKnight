@@ -1,0 +1,64 @@
+\doxysection{Movable\+Entity.\+h}
+\hypertarget{_movable_entity_8h_source}{}\label{_movable_entity_8h_source}\index{src/MovableEntity.h@{src/MovableEntity.h}}
+\doxymbox{\hyperlink{_movable_entity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOVABLEENTITY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOVABLEENTITY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_handler_8h}{Handler.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_ground_8h}{Ground.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_movable_entity2_d_a9bd310cc9a5935c0b46d086fb45a9cbd}{MovableEntity2D}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ sf::Vector2f\ \doxymbox{\hyperlink{class_movable_entity2_d_a4c96e7680790848703fffa6fee1c9d01}{velocity}};}
+\DoxyCodeLine{00014\ \ \ \ \ sf::Vector2f\ \doxymbox{\hyperlink{class_movable_entity2_d_a1edb74a4d5fecf103b359b70d0574e5e}{acceleration}};}
+\DoxyCodeLine{00015\ \ \ \ \ \doxymbox{\hyperlink{class_handler}{Handler}}*\ \doxymbox{\hyperlink{class_movable_entity2_d_aa28e2c0261307f7b7b78b2e0b2bd0422}{handler}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_movable_entity2_d_a0deaded2620bdcfe6c0d1771ac8312b3}{collisionEnabled}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_movable_entity2_d_a9bd310cc9a5935c0b46d086fb45a9cbd}{MovableEntity2D}}(}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ sf::Vector2f\ initialVelocity,\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ sf::Vector2f\ initialAcceleration,\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ sf::Vector2f\ initialPosition}
+\DoxyCodeLine{00022\ \ \ \ \ )\ :\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}}(initialPosition)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ this-\/>velocity\ =\ initialVelocity;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ this-\/>acceleration\ =\ initialAcceleration;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_movable_entity2_d_a58f31ac0e41389794495f1fff9f6a3ef}{update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ previousFeetY\ =\ this-\/>getPosition().y\ +\ this-\/>\doxymbox{\hyperlink{class_entity2_d_ac76822d3585e09a6ce8ff4b2d99f14e0}{getBounds}}().size.y;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ this-\/>velocity\ +=\ \doxymbox{\hyperlink{class_movable_entity2_d_a1edb74a4d5fecf103b359b70d0574e5e}{acceleration}}\ *\ deltaTime;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ move(\doxymbox{\hyperlink{class_movable_entity2_d_a4c96e7680790848703fffa6fee1c9d01}{velocity}}\ *\ deltaTime);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_movable_entity2_d_aa28e2c0261307f7b7b78b2e0b2bd0422}{handler}}\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>collisionEnabled)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ groundHandler\ =\ \textcolor{keyword}{dynamic\_cast<}\doxymbox{\hyperlink{class_ground_handler}{GroundHandler}}*\textcolor{keyword}{>}(\doxymbox{\hyperlink{class_movable_entity2_d_aa28e2c0261307f7b7b78b2e0b2bd0422}{handler}}))\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ groundY\ =\ groundHandler-\/>getSurfaceHeight(this-\/>\doxymbox{\hyperlink{class_entity2_d_ac76822d3585e09a6ce8ff4b2d99f14e0}{getBounds}}());}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ feetY\ =\ this-\/>getPosition().y\ +\ this-\/>\doxymbox{\hyperlink{class_entity2_d_ac76822d3585e09a6ce8ff4b2d99f14e0}{getBounds}}().size.y;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>velocity.y\ >=\ 0\ \&\&\ feetY\ >=\ groundY\ \&\&\ previousFeetY\ <=\ groundY\ +\ 10.0f)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setPosition(\{this-\/>getPosition().x,\ groundY\ -\/\ this-\/>\doxymbox{\hyperlink{class_entity2_d_ac76822d3585e09a6ce8ff4b2d99f14e0}{getBounds}}().size.y\});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>velocity.y\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\doxymbox{\hyperlink{class_movable_entity2_d_acfe6af75cff1acbc60673e25ad948a09}{onLand}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_movable_entity2_d_aa345d3f2e7106249c6581c68d3bbba59}{setHandler}}(\doxymbox{\hyperlink{class_handler}{Handler}}*\ h)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ this-\/>handler\ =\ h;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_movable_entity2_d_a7fde771d38de905083a7c82403cc280e}{updateAcceleration}}(sf::Vector2f\ newAcceleration)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ this-\/>acceleration\ =\ newAcceleration;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{constants_8h_a7877e997621e1161f058fce90febd464}{EVENT}}\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_movable_entity2_d_acfe6af75cff1acbc60673e25ad948a09}{onLand}}()\ \{\}}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MOVABLEENTITY\_H}}
+
+\end{DoxyCode}

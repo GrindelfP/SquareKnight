@@ -1,0 +1,236 @@
+\doxysection{Ground\+Handler Class Reference}
+\hypertarget{class_ground_handler}{}\label{class_ground_handler}\index{GroundHandler@{GroundHandler}}
+
+
+{\ttfamily \+\#include $<$Ground.\+h$>$}
+
+
+
+Inheritance diagram for Ground\+Handler:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_ground_handler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ground\+Handler:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_ground_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_ground_handler_ae8e302c337e093ada7df0686e7964078}{Ground\+Handler}} ()
+\item 
+void \doxymbox{\hyperlink{class_ground_handler_a0bbcb882393af7c8035047d4063326f4}{reset}} ()
+\item 
+void \doxymbox{\hyperlink{class_ground_handler_aab1fd5f27269d229a8440ba2588de7e6}{spawn\+Starting\+Location}} ()
+\item 
+void \doxymbox{\hyperlink{class_ground_handler_ad6254e137d12c6cc621950357fa0821c}{update}} (const sf::\+\+Vector2f \&camera\+Position, const float delta\+Time)
+\item 
+void \doxymbox{\hyperlink{class_ground_handler_a0da6220a3aea5b99b196dd5117eee00a}{spawn}} (bool add\+Gaps=true)
+\item 
+void \doxymbox{\hyperlink{class_ground_handler_a1a1b0d4ce48573e913a5d294c61b5aaa}{draw\+To}} (sf::\+\+Render\+Target \&target) const
+\item 
+float \doxymbox{\hyperlink{class_ground_handler_add1b19f1dcc85413ee4957d3e744489d}{get\+Surface\+Height}} (const sf::\+\+Float\+Rect bounds) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_handler}{Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{class_handler_aae990cbd425b7c030285cba901583ee9}{\texorpdfstring{$\sim$}{\string~}\+Handler}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+deque$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_tile2_d}{Tile2D}} $>$ $>$ \doxymbox{\hyperlink{class_ground_handler_add430cd15c3ab044aba472c2b56bba80}{tiles}}
+\item 
+float \doxymbox{\hyperlink{class_ground_handler_a3b18b8054420d306bdbb2a35e645d05d}{lastX}} = -\/\doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr float \doxymbox{\hyperlink{class_ground_handler_ada75088684c492b6b838f53d32210ab5}{tile\+Length}} = 100.\+0f
+\item 
+static constexpr float \doxymbox{\hyperlink{class_ground_handler_a1070c20c5e95750c8b12c569708ee362}{reserve}} = \doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}
+\item 
+static constexpr float \doxymbox{\hyperlink{class_ground_handler_aa2fd659df5a36ab7da7298a3cb0077a2}{gap\+Size}} = 150.f
+\item 
+static constexpr int \doxymbox{\hyperlink{class_ground_handler_a26b9d0891c8922d3658625a558bf0e65}{gapless\+Row\+Size}} = 25
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_ground_handler_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ground_handler_ae8e302c337e093ada7df0686e7964078}\index{GroundHandler@{GroundHandler}!GroundHandler@{GroundHandler}}
+\index{GroundHandler@{GroundHandler}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{GroundHandler()}{GroundHandler()}}
+{\footnotesize\ttfamily \label{class_ground_handler_ae8e302c337e093ada7df0686e7964078} 
+Ground\+Handler::\+\+Ground\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ground_handler_ae8e302c337e093ada7df0686e7964078_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-func-members}
+\Hypertarget{class_ground_handler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ground_handler_a1a1b0d4ce48573e913a5d294c61b5aaa}\index{GroundHandler@{GroundHandler}!drawTo@{drawTo}}
+\index{drawTo@{drawTo}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{drawTo()}{drawTo()}}
+{\footnotesize\ttfamily \label{class_ground_handler_a1a1b0d4ce48573e913a5d294c61b5aaa} 
+void Ground\+Handler::\+draw\+To (\begin{DoxyParamCaption}\item[{sf::\+\+Render\+Target \&}]{target}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{class_ground_handler_a1a1b0d4ce48573e913a5d294c61b5aaa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_ground_handler_add1b19f1dcc85413ee4957d3e744489d}\index{GroundHandler@{GroundHandler}!getSurfaceHeight@{getSurfaceHeight}}
+\index{getSurfaceHeight@{getSurfaceHeight}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{getSurfaceHeight()}{getSurfaceHeight()}}
+{\footnotesize\ttfamily \label{class_ground_handler_add1b19f1dcc85413ee4957d3e744489d} 
+float Ground\+Handler::\+get\+Surface\+Height (\begin{DoxyParamCaption}\item[{const sf::\+\+Float\+Rect}]{bounds}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+\Hypertarget{class_ground_handler_a0bbcb882393af7c8035047d4063326f4}\index{GroundHandler@{GroundHandler}!reset@{reset}}
+\index{reset@{reset}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_ground_handler_a0bbcb882393af7c8035047d4063326f4} 
+void Ground\+Handler::\+reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ground_handler_a0bbcb882393af7c8035047d4063326f4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_ground_handler_a0bbcb882393af7c8035047d4063326f4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_ground_handler_a0da6220a3aea5b99b196dd5117eee00a}\index{GroundHandler@{GroundHandler}!spawn@{spawn}}
+\index{spawn@{spawn}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{spawn()}{spawn()}}
+{\footnotesize\ttfamily \label{class_ground_handler_a0da6220a3aea5b99b196dd5117eee00a} 
+void Ground\+Handler::\+spawn (\begin{DoxyParamCaption}\item[{bool}]{add\+Gaps}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ground_handler_a0da6220a3aea5b99b196dd5117eee00a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_ground_handler_aab1fd5f27269d229a8440ba2588de7e6}\index{GroundHandler@{GroundHandler}!spawnStartingLocation@{spawnStartingLocation}}
+\index{spawnStartingLocation@{spawnStartingLocation}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{spawnStartingLocation()}{spawnStartingLocation()}}
+{\footnotesize\ttfamily \label{class_ground_handler_aab1fd5f27269d229a8440ba2588de7e6} 
+void Ground\+Handler::\+spawn\+Starting\+Location (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ground_handler_aab1fd5f27269d229a8440ba2588de7e6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_ground_handler_aab1fd5f27269d229a8440ba2588de7e6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_ground_handler_ad6254e137d12c6cc621950357fa0821c}\index{GroundHandler@{GroundHandler}!update@{update}}
+\index{update@{update}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_ground_handler_ad6254e137d12c6cc621950357fa0821c} 
+void Ground\+Handler::\+update (\begin{DoxyParamCaption}\item[{const sf::\+\+Vector2f \&}]{camera\+Position}{, }\item[{const float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_ground_handler_ad6254e137d12c6cc621950357fa0821c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_ground_handler_ad6254e137d12c6cc621950357fa0821c_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_ground_handler_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ground_handler_a26b9d0891c8922d3658625a558bf0e65}\index{GroundHandler@{GroundHandler}!gaplessRowSize@{gaplessRowSize}}
+\index{gaplessRowSize@{gaplessRowSize}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{gaplessRowSize}{gaplessRowSize}}
+{\footnotesize\ttfamily \label{class_ground_handler_a26b9d0891c8922d3658625a558bf0e65} 
+int Ground\+Handler::\+gapless\+Row\+Size = 25\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_ground_handler_aa2fd659df5a36ab7da7298a3cb0077a2}\index{GroundHandler@{GroundHandler}!gapSize@{gapSize}}
+\index{gapSize@{gapSize}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{gapSize}{gapSize}}
+{\footnotesize\ttfamily \label{class_ground_handler_aa2fd659df5a36ab7da7298a3cb0077a2} 
+float Ground\+Handler::\+gap\+Size = 150.f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_ground_handler_a3b18b8054420d306bdbb2a35e645d05d}\index{GroundHandler@{GroundHandler}!lastX@{lastX}}
+\index{lastX@{lastX}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{lastX}{lastX}}
+{\footnotesize\ttfamily \label{class_ground_handler_a3b18b8054420d306bdbb2a35e645d05d} 
+float Ground\+Handler::\+lastX = -\/\doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}}
+
+\Hypertarget{class_ground_handler_a1070c20c5e95750c8b12c569708ee362}\index{GroundHandler@{GroundHandler}!reserve@{reserve}}
+\index{reserve@{reserve}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{reserve}{reserve}}
+{\footnotesize\ttfamily \label{class_ground_handler_a1070c20c5e95750c8b12c569708ee362} 
+float Ground\+Handler::\+reserve = \doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\+\_\+\+WIDTH}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_ground_handler_ada75088684c492b6b838f53d32210ab5}\index{GroundHandler@{GroundHandler}!tileLength@{tileLength}}
+\index{tileLength@{tileLength}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{tileLength}{tileLength}}
+{\footnotesize\ttfamily \label{class_ground_handler_ada75088684c492b6b838f53d32210ab5} 
+float Ground\+Handler::\+tile\+Length = 100.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_ground_handler_add430cd15c3ab044aba472c2b56bba80}\index{GroundHandler@{GroundHandler}!tiles@{tiles}}
+\index{tiles@{tiles}!GroundHandler@{GroundHandler}}
+\doxysubsubsection{\texorpdfstring{tiles}{tiles}}
+{\footnotesize\ttfamily \label{class_ground_handler_add430cd15c3ab044aba472c2b56bba80} 
+std::\+deque$<$std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{class_tile2_d}{Tile2D}} $>$ $>$ Ground\+Handler::\+tiles}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+src/\+\doxymbox{\hyperlink{_ground_8h}{Ground.\+h}}\end{DoxyCompactItemize}

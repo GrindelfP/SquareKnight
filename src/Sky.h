@@ -42,8 +42,7 @@ public:
         }
     }
 
-    void follow(float deltaTime, float cameraSpeed = 3.5f, bool fixed = false) override {
-    }
+    void follow(float deltaTime, float cameraSpeed) override { }
 
     sf::FloatRect getBounds() const final { return {}; }
 };

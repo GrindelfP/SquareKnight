@@ -8,12 +8,24 @@
 #include "Ground.h"
 #include "Sky.h"
 #include <memory>
+#include <mach-o/dyld.h>
+#include <unistd.h>
 
 enum class GameState { Playing, Dying, GameOver };
 
-
 int main(int argc, char **argv) {
-    srand(time(0));
+#ifdef __APPLE__
+    char path[1024];
+    uint32_t size = sizeof(path);
+    if (_NSGetExecutablePath(path, &size) == 0) {
+        std::string fullPath(path);
+        std::string dir = fullPath.substr(0, fullPath.find_last_of('/'));
+        chdir(dir.c_str());
+        chdir("../Resources");
+    }
+#endif // __APPLE__
+
+    srand(time((0)));
 
     auto state = GameState::Playing;
     float deathTimer = 0.0f;
@@ -30,8 +42,6 @@ int main(int argc, char **argv) {
     sf::Clock clock;
 
     // PLAYER
-    // auto shape = std::make_unique<sf::RectangleShape>(sf::Vector2f(PLAYER_SIZE, PLAYER_SIZE));
-    // shape->setFillColor(sf::Color::Red);
     sf::Vector2f playerInitialPosition(
         {0.0f, static_cast<float>(window.getSize().y - PLAYER_OFFSET)}
     );

@@ -1,0 +1,142 @@
+\doxysection{Sky.\+h}
+\hypertarget{_sky_8h_source}{}\label{_sky_8h_source}\index{src/Sky.h@{src/Sky.h}}
+\doxymbox{\hyperlink{_sky_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SKY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SKY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_follower_8h}{Follower.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_handler_8h}{Handler.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sun2_d_a92b032f22c9946a458a7a2d1cf799bc4}{Sun2D}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}},\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_follower2_d_abe8bd6e1667169db7823a3ac6255bfc2}{Follower2D}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{float}\ accumulator\ =\ 0.0f;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<sf::CircleShape>\ \doxymbox{\hyperlink{class_sun2_d_a251383d2bb240e179fbc53dbe626403c}{visual}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_sun2_d_a608d3ce0bd5896a597224faa9706a888}{layers}}\ =\ 30;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_sun2_d_a5af0655f4adcbed05de5052409a53029}{baseRadius}}\ =\ 40.0f;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_sun2_d_a92b032f22c9946a458a7a2d1cf799bc4}{Sun2D}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}}\ \&targetEntity)\ :\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}}(sf::Vector2f(\doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\_WIDTH}}\ -\/\ 550,\ 120)),}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_follower2_d_abe8bd6e1667169db7823a3ac6255bfc2}{Follower2D}}(\&targetEntity)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{constants_8h_a8574c483fca0144440e71472f40cc883}{REPEAT}}(\doxymbox{\hyperlink{class_sun2_d_a608d3ce0bd5896a597224faa9706a888}{layers}})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentRadius\ =\ \doxymbox{\hyperlink{class_sun2_d_a5af0655f4adcbed05de5052409a53029}{baseRadius}}\ +\ (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(i)\ *\ 2.5f);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ sf::CircleShape\ layer(currentRadius);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ layer.setOrigin(\{currentRadius,\ currentRadius\});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ alpha\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(200\ /\ (i\ +\ 1));}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ layer.setFillColor(sf::Color(255,\ 255,\ 150,\ alpha));}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>visual.push\_back(layer);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sun2_d_a5ec7d476387cd906796217b24395b0b2}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ accumulator\ +=\ deltaTime;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pulse\ =\ 1.0f\ +\ std::sin(accumulator\ *\ 3.0f)\ *\ 0.04f;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ this-\/>setScale(\{pulse,\ pulse\});}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sun2_d_a336a09fde97701300cf955d93a2db8ba}{draw}}(sf::RenderTarget\ \&\doxymbox{\hyperlink{class_follower2_d_a94425b90aff7f1f3913fa2241a09c4c4}{target}},\ sf::RenderStates\ states)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ states.transform\ *=\ getTransform();}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ \doxymbox{\hyperlink{class_sun2_d_a251383d2bb240e179fbc53dbe626403c}{visual}}.rbegin();\ it\ !=\ \doxymbox{\hyperlink{class_sun2_d_a251383d2bb240e179fbc53dbe626403c}{visual}}.rend();\ ++it)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_follower2_d_a94425b90aff7f1f3913fa2241a09c4c4}{target}}.draw(*it,\ states);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sun2_d_afd8a257a7ee5627b63eb66852846c768}{follow}}(\textcolor{keywordtype}{float}\ deltaTime,\ \textcolor{keywordtype}{float}\ cameraSpeed)\textcolor{keyword}{\ override\ }\{\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ sf::FloatRect\ \doxymbox{\hyperlink{class_sun2_d_a5cb228558330e9f102f70f22ba3c9d0b}{getBounds}}()\ const\ final\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_cloud2_d_a178c1b04cda7b8b1f1b753cbb8618617}{Cloud2D}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}}\ \{}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ std::vector<sf::CircleShape>\ \doxymbox{\hyperlink{class_cloud2_d_a684f1ed5d75c4d8b3cd02f482720a85d}{visual}};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_cloud2_d_ae7ca581fa27f83f1554653b18d8eca05}{lowRadius}}\ =\ 30;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_cloud2_d_a42feb788db88b5453a57e3a53329bf79}{bigRadius}}\ =\ 60;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_cloud2_d_a178c1b04cda7b8b1f1b753cbb8618617}{Cloud2D}}(\textcolor{keyword}{const}\ sf::Vector2f\ \&position)\ :\ \doxymbox{\hyperlink{class_entity2_d_ad9c849c5c9686a5c405f040ea690fb9b}{Entity2D}}(position)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ sf::Color\ white(255,\ 255,\ 255);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ gen(rd());}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution\ countDist(3,\ 7);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution\ radiusDist(\doxymbox{\hyperlink{class_cloud2_d_ae7ca581fa27f83f1554653b18d8eca05}{lowRadius}},\ \doxymbox{\hyperlink{class_cloud2_d_a42feb788db88b5453a57e3a53329bf79}{bigRadius}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution\ offsetDist(-\/30.0f,\ 30.0f);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{constants_8h_a8574c483fca0144440e71472f40cc883}{REPEAT}}(countDist(gen))\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>visual.emplace\_back(radiusDist(gen));}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>visual[i].setFillColor(white);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>visual[i].setScale(sf::Vector2f(2.0f,\ 1.0f));}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>visual[i].setPosition(sf::Vector2f(}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getPosition().x\ +\ offsetDist(gen),}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getPosition().y\ +\ offsetDist(gen)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_cloud2_d_af16a9a64721a9032460019eb3ed54998}{draw}}(sf::RenderTarget\ \&target,\ sf::RenderStates\ states)\ \textcolor{keyword}{const}\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ states.transform\ *=\ getTransform();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&cloudPart:\ this-\/>visual)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ target.draw(cloudPart,\ states);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_cloud2_d_acd8176f4131382302e0f596e806156c6}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{final}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ sf::FloatRect\ \doxymbox{\hyperlink{class_cloud2_d_a90c8a3698c793f3642e67e914041486c}{getBounds}}()\ const\ final\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \};}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_sky_handler_a3cee511b49124e6c3e2df177653439c6}{SkyHandler}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_handler}{Handler}}\ \{}
+\DoxyCodeLine{00090\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00091\ \ \ \ \ std::deque<std::unique\_ptr<Cloud2D>\ >\ \doxymbox{\hyperlink{class_sky_handler_a103c5e1f116bc11ebac2e545d0b8ac54}{clouds}};}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_sky_handler_a64c59e19117936fde36f328aa142b3c2}{lastX}}\ =\ -\/\doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\_WIDTH}};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_sky_handler_a7bf4be584865af3315e6dd21e1c54380}{cloudRadius}}\ =\ 100.0f;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_sky_handler_ac271f8e82b039a0c496f30d38522ca68}{reserve}}\ =\ \doxymbox{\hyperlink{constants_8h_a498d9f026138406895e9a34b504ac6a6}{WINDOW\_WIDTH}};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{class_sky_handler_a86592b39d1e2201f2edf83594e2fb3c4}{initialCloudZone}}\ =\ 30;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_sky_handler_a3cee511b49124e6c3e2df177653439c6}{SkyHandler}}()\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{constants_8h_a8574c483fca0144440e71472f40cc883}{REPEAT}}(\doxymbox{\hyperlink{class_sky_handler_a86592b39d1e2201f2edf83594e2fb3c4}{initialCloudZone}})\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_sky_handler_ae9540ff9b6a30820da081ee8ca987093}{spawn}}();}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sky_handler_a81a5c0e57f10269d4d9334a8891af7da}{update}}(\textcolor{keyword}{const}\ sf::Vector2f\ \&cameraPosition)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_sky_handler_a64c59e19117936fde36f328aa142b3c2}{lastX}}\ <\ cameraPosition.x\ +\ \doxymbox{\hyperlink{class_sky_handler_ac271f8e82b039a0c496f30d38522ca68}{reserve}})\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\doxymbox{\hyperlink{class_sky_handler_ae9540ff9b6a30820da081ee8ca987093}{spawn}}();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clouds[0]-\/>getPosition().x\ +\ \doxymbox{\hyperlink{class_sky_handler_a7bf4be584865af3315e6dd21e1c54380}{cloudRadius}}\ <\ cameraPosition.x\ -\/\ \doxymbox{\hyperlink{class_sky_handler_ac271f8e82b039a0c496f30d38522ca68}{reserve}})\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_sky_handler_a103c5e1f116bc11ebac2e545d0b8ac54}{clouds}}.pop\_front();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sky_handler_ae9540ff9b6a30820da081ee8ca987093}{spawn}}()\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::random\_device\ rd;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mt19937\ gen(rd());}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution\ gapDist(200.0f,\ 400.0f);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution\ heightDist(0.0f,\ 200.0f);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ height\ =\ heightDist(gen);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ gap\ =\ gapDist(gen);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ this-\/>lastX\ +=\ (\doxymbox{\hyperlink{class_sky_handler_a7bf4be584865af3315e6dd21e1c54380}{cloudRadius}}\ +\ gap);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ this-\/>clouds.push\_back(}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_unique<Cloud2D>(sf::Vector2f(\doxymbox{\hyperlink{class_sky_handler_a64c59e19117936fde36f328aa142b3c2}{lastX}},\ height))}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_sky_handler_aada32b3bf78111abd80773dd95971a88}{drawTo}}(sf::RenderTarget\ \&target,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ cameraCenterX,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ factor\ =\ 0.5f)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ parallaxOffset\ =\ -\/cameraCenterX\ *\ factor;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ sf::RenderStates\ states;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ states.transform.translate(sf::Vector2f(parallaxOffset,\ 0.0f));}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&cloud:\ this-\/>clouds)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ target.draw(*cloud,\ states);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \};}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SKY\_H}}
+
+\end{DoxyCode}

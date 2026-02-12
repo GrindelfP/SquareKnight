@@ -1,0 +1,12 @@
+<map id="Sun2D" name="Sun2D">
+<area shape="rect" id="Node000001" title=" " alt="" coords="98,252,159,278"/>
+<area shape="rect" id="Node000002" href="$class_entity2_d.html" title=" " alt="" coords="98,80,170,106"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,120,131,252,126,251,130,123"/>
+<area shape="rect" id="Node000005" href="$class_follower2_d.html" title=" " alt="" coords="150,177,237,203"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="150,117,189,176,183,177,148,122"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,129,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,40,125,79,120,81,88,45"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="153,5,248,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="178,45,147,82,142,78,181,40"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="175,213,141,254,137,250,170,215"/>
+</map>
