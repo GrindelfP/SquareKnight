@@ -2,11 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-#include "constants.h"
-#include "Player.h"
-#include "Camera.h"
-#include "Ground.h"
-#include "Sky.h"
+#include "constants.hh"
+#include "Player.hh"
+#include "Camera.hh"
+#include "Ground.hh"
+#include "Sky.hh"
 #include <memory>
 #include <mach-o/dyld.h>
 #include <unistd.h>
@@ -24,8 +24,6 @@ int main(int argc, char **argv) {
         chdir("../Resources");
     }
 #endif // __APPLE__
-
-    srand(time((0)));
 
     auto state = GameState::Playing;
     float deathTimer = 0.0f;
@@ -54,7 +52,7 @@ int main(int argc, char **argv) {
     // HANDLERS
     GroundHandler groundHandler;
     SkyHandler skyHandler;
-
+    skyHandler.pin();
     player.setHandler(&groundHandler);
 
     Sun2D sun(player);
@@ -81,7 +79,7 @@ int main(int argc, char **argv) {
     djText.setPosition({WINDOW_WIDTH - 350.0f, 50.0f});
 
     // MUSIC
-    // 1. BACKGROUNND
+    // 1. BACKGROUND
     sf::Music bgMusic;
     if (bgMusic.openFromFile("assets/theme-2.wav")) {
         bgMusic.setLooping(true);
@@ -90,9 +88,9 @@ int main(int argc, char **argv) {
     }
 
     sf::SoundBuffer coinBuffer, milestoneBuffer;
-    coinBuffer.loadFromFile("assets/pickup.wav");
+    if (!coinBuffer.loadFromFile("assets/pickup.wav")) return -1;
     sf::Sound coinSound(coinBuffer);
-    milestoneBuffer.loadFromFile("assets/50coins.wav");
+    if (!milestoneBuffer.loadFromFile("assets/50coins.wav")) return -1;
     sf::Sound milestoneSound(milestoneBuffer);
 
 

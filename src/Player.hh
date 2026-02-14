@@ -1,8 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "MovableEntity.h"
-#include "constants.h"
+#include "MovableEntity.hh"
+#include "constants.hh"
 #include <SFML/Graphics.hpp>
 
 class Player2D : public MovableEntity2D {

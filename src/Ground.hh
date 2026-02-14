@@ -1,12 +1,12 @@
 #ifndef GROUND_H
 #define GROUND_H
 
-#include "Entity.h"
-#include "constants.h"
+#include "Entity.hh"
+#include "constants.hh"
 #include <random>
 
-#include "Coin.h"
-#include "Handler.h"
+#include "Coin.hh"
+#include "Handler.hh"
 
 class Tile2D : public Entity2D {
 

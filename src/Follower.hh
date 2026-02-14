@@ -1,7 +1,7 @@
 #ifndef FOLLOWER_H
 #define FOLLOWER_H
 
-#include "Entity.h"
+#include "Entity.hh"
 
 class Follower2D {
 public:

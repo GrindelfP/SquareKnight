@@ -1,8 +1,8 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Entity.h"
-#include "Follower.h"
+#include "Entity.hh"
+#include "Follower.hh"
 #include <SFML/Graphics.hpp>
 
 class Camera2D : public Entity2D, public Follower2D {

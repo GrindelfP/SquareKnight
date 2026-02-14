@@ -1,11 +1,11 @@
 #ifndef MOVABLEENTITY_H
 #define MOVABLEENTITY_H
 
-#include "Entity.h"
-#include "Handler.h"
+#include "Entity.hh"
+#include "Handler.hh"
 #include <SFML/Graphics.hpp>
-#include "constants.h"
-#include "Ground.h"
+#include "constants.hh"
+#include "Ground.hh"
 
 class MovableEntity2D : public Entity2D {
 public:

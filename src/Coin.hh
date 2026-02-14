@@ -1,8 +1,8 @@
 #ifndef COIN_H
 #define COIN_H
 
-#include "Entity.h"
-#include "constants.h"
+#include "Entity.hh"
+#include "constants.hh"
 
 class Coin2D : public Entity2D {
 public:

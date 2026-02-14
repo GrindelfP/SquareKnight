@@ -1,12 +1,12 @@
 #ifndef SKY_H
 #define SKY_H
 
-#include "Entity.h"
-#include "Follower.h"
-#include "constants.h"
+#include "Entity.hh"
+#include "Follower.hh"
+#include "constants.hh"
 #include <cmath>
 
-#include "Handler.h"
+#include "Handler.hh"
 
 class Sun2D : public Entity2D, public Follower2D {
 private:
@@ -132,5 +132,7 @@ public:
             target.draw(*cloud, states);
         }
     }
+
+    void pin() {}
 };
 #endif // SKY_H
