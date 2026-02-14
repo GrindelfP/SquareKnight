@@ -6,14 +6,14 @@ RUNABLE=0
 # ADDITIONAL ARGS
 for arg in "$@"; do
 # CLEAN
-    if [ "$arg" == "clean" ]; then    
+    if [ "$arg" = "clean" ]; then
         echo "Performing clean build!"
         if [ -d "$BUILD_DIR" ]; then 
             rm -rf "$BUILD_DIR"
         fi
     fi
 # RUN
-    if [ "$arg" == "run" ]; then    
+    if [ "$arg" = "run" ]; then
         RUNABLE=1
     fi
 done
@@ -31,5 +31,6 @@ cmake ..
 cmake --build .
 
 if [ "$RUNABLE" -eq 1 ]; then
-    .././run.sh
+    cd ..
+    ./run.sh
 fi

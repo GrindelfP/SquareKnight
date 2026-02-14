@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BUILD_DIR="build"
+BUILD_DIR="build/SquareKnight.app/Contents/MacOS/"
 
 cd "$BUILD_DIR"
 
-./main
+./SquareKnight

@@ -11,7 +11,7 @@ list(APPEND CMAKE_PREFIX_PATH "/opt/homebrew")
 find_package(SFML 3 COMPONENTS Window Graphics System Audio REQUIRED)
 
 add_executable(${PROJECT_NAME} MACOSX_BUNDLE
-        src/main.cpp
+        src/main.cc
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -33,17 +33,15 @@ target_link_libraries(${PROJECT_NAME}
 
 set(SFML_LIB_DIR "/opt/homebrew/lib")
 
+set(SFML_BREW_PATH "/opt/homebrew/opt/sfml/lib")
+set(APP_BUNDLE "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.app")
+set(FRAMEWORKS_DIR "${APP_BUNDLE}/Contents/Frameworks")
+set(EXECUTABLE "${APP_BUNDLE}/Contents/MacOS/${PROJECT_NAME}")
+
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Frameworks"
-
-        COMMAND ${CMAKE_COMMAND} -E copy
-        "${SFML_LIB_DIR}/libsfml-graphics.3.0.dylib"
-        "${SFML_LIB_DIR}/libsfml-window.3.0.dylib"
-        "${SFML_LIB_DIR}/libsfml-system.3.0.dylib"
-        "${SFML_LIB_DIR}/libsfml-audio.3.0.dylib"
-        "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Frameworks"
-
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_SOURCE_DIR}/assets"
-        "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.app/Contents/Resources/assets"
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${APP_BUNDLE}/Contents/Frameworks"
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/assets" "${APP_BUNDLE}/Contents/Resources/assets"
+        COMMAND dylibbundler -od -b -x "${EXECUTABLE}" -d "${APP_BUNDLE}/Contents/Frameworks/" -p "@executable_path/../Frameworks/"
+        COMMAND codesign --force --deep --sign - "${APP_BUNDLE}"
+        COMMENT "Bundling dependencies for ${PROJECT_NAME}..."
 )

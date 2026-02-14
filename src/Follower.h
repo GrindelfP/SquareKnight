@@ -5,6 +5,7 @@
 
 class Follower2D {
 public:
+    virtual ~Follower2D() = default;
 
     const Entity2D* target = nullptr;
 
